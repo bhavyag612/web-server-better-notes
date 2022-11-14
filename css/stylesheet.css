@@ -1,18 +1,28 @@
 body {
-    background-color: white;
+    background-color: #f0e2d1;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto Mono', monospace;
+    color: #007478;
 }
 
-footer {
-    background-color: #f0e2d1;=
+header ul {
+    justify-content: right;
+    margin: 20px 10px;
+}
+
+header li {
+    padding: 0px 10px;
 }
 
 footer ul {
+    justify-content: center;
+}
+
+.flex {
     padding-left: 0;
     list-style-type: none;
     display: flex;
-    justify-content: center;
 }
 
 .center {
