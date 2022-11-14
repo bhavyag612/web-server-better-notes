@@ -10,6 +10,10 @@ header {
     margin: 125px 0px 0px;
 }
 
+header h1 {
+    font-size: 20pt;
+}
+
 header ul {
     justify-content: right;
     margin: 20px 10px;
@@ -17,6 +21,26 @@ header ul {
 
 header li {
     padding: 0px 10px;
+}
+
+section {
+    display: grid;
+    grid-template-rows: 45px repeat(2, 1fr) 45px;
+    grid-template-columns: repeat(2,1fr);
+    padding: 0px 20px 0px;
+}
+
+textarea {
+    background-color: #f9f3ec;
+    border: thick solid #48a0da;
+    resize: none;
+    outline: none;
+    width: inherit;
+    font-size: x-large;
+    height: 150px;
+    padding: 20px;
+    grid-column: span 2;
+    grid-row: 2/4;
 }
 
 footer ul {
@@ -54,10 +78,13 @@ aside ul {
         width: 20%;
         height: 100%;
     }
+    section {
+       padding: 0px 20px 0px;
+    }
     header {
         margin: 0px;
     }
-    footer, header {
+    footer, header, section {
         margin-left: 20%;
     }
 }
