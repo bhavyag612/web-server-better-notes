@@ -6,6 +6,10 @@ body {
     color: #007478;
 }
 
+header {
+    margin: 125px 0px 0px;
+}
+
 header ul {
     justify-content: right;
     margin: 20px 10px;
@@ -17,6 +21,20 @@ header li {
 
 footer ul {
     justify-content: center;
+}
+
+aside {
+    background-color: #f9f3ec;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+aside ul {
+    list-style-type: square;
+    display: inline-block;
+    padding: 0px 0px 0px 20px;
+    margin: 0px;
 }
 
 .flex {
