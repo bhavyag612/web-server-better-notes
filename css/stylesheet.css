@@ -1,9 +1,16 @@
+html {
+    height: 100%;
+}
+
 body {
     background-color: #f0e2d1;
     margin: 0;
     padding: 0;
     font-family: 'Roboto Mono', monospace;
     color: #007478;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 header {
@@ -29,6 +36,7 @@ section {
     grid-template-columns: repeat(2,1fr);
     row-gap: 20px;
     padding: 0px 20px 0px;
+    margin-bottom: 10px;
 }
 
 .topBtns {
@@ -78,12 +86,11 @@ textarea {
 }
 
 footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    margin-top: auto;
 }
 
 footer ul {
+    margin-bottom: 0;
     justify-content: center;
 }
 
