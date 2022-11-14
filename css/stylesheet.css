@@ -46,3 +46,18 @@ aside ul {
 .center {
     text-align: center;
 }
+
+@media screen and (min-width: 600px) {
+    aside {
+        position: absolute;
+        left: 0px;
+        width: 20%;
+        height: 100%;
+    }
+    header {
+        margin: 0px;
+    }
+    footer, header {
+        margin-left: 20%;
+    }
+}
