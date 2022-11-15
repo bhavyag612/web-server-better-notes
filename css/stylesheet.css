@@ -84,6 +84,7 @@ button:active {
 textarea {
     background-color: #f9f3ec;
     border: thick solid #48a0da;
+    border-radius: 4px;
     resize: none;
     outline: none;
     width: inherit;
