@@ -88,7 +88,7 @@ textarea {
     outline: none;
     width: inherit;
     font-size: 12pt;
-    height: 125px;
+    height: 150px;
     padding: 15px;
     grid-column: span 2;
     grid-row: 2/4;
@@ -122,6 +122,7 @@ aside ul {
     display: inline-block;
     padding: 0px 0px 0px 20px;
     margin: 0px 0px 15px;
+    font-size: 14pt;
 }
 
 .flex {
@@ -134,7 +135,7 @@ aside ul {
     text-align: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 630px) {
     aside {
         position: absolute;
         left: 0px;
