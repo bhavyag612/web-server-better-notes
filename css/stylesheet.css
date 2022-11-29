@@ -135,6 +135,9 @@ aside ul {
     text-align: center;
 }
 
+/* Javascript Interactivity */
+
+
 @media screen and (min-width: 650px) {
     aside {
         position: absolute;
