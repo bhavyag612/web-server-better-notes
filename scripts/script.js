@@ -1,13 +1,15 @@
 window.onload=function(){
+    /* Variable Declarations */
     const textArea = document.querySelector('textarea');
     const newNote = document.querySelector('.newNote');
     const darkTheme = document.querySelector('.darkTheme');
     const cancel = document.querySelector('.cancel');
     const save = document.querySelector('.save');
-
+    const notesList = document.querySelector('aside ul');
+    const notesListItems = notesList.childNodes;
     const notesArray = [
         {title: "note one", body: "This is my first note"},
-        {title: "none two", body: "This is my first note"} 
+        {title: "note two", body: "This is my second note"} 
     ];
 
     /* New Note Button Click Events */
@@ -20,7 +22,7 @@ window.onload=function(){
             textArea.value = '';
         }
         textArea.focus();
-    };
+    }
     newNote.addEventListener("click", newNoteBTN);
     
     /* Dark Theme Button Click Events */
@@ -41,13 +43,11 @@ window.onload=function(){
     darkTheme.addEventListener("click", darkThemeBTN);
 
     /* Save Button Click Events */
-    function appendListItem (item) {
+    function appendListItem () {
         let listItem = document.createElement("li");
-        notesList = document.querySelector("aside ul");
-        notesList.appendChild(listItem)
+        notesList.appendChild(listItem);
         listItem.textContent = noteTitle;
     }
-
     function saveBTN () {
         do {
             noteTitle = prompt("Please enter a title for this note: ");
@@ -57,8 +57,8 @@ window.onload=function(){
         notesArray.push(newNote);
         textArea.value = '';
         textArea.focus();
-        appendListItem(newNote);
-    };
+        appendListItem();
+    }
     save.addEventListener("click", saveBTN);
 
     /* Cancel Button Click Events */
@@ -66,6 +66,21 @@ window.onload=function(){
         save.style.display = 'none';
         cancel.style.display = 'none';
         textArea.style.display = 'none';
-    };
+    }
     cancel.addEventListener("click", cancelBTN);
+
+    /* List Item Click Events */
+    function displayNote () {
+        notesListItems.forEach(function(item) {
+            item.onclick = function() {
+                clickedLi = this.innerText;
+                for (let note of notesArray) {   
+                    if (note.title.includes(clickedLi)){
+                    textArea.value = note.body;
+                    }     
+                }
+            }
+        })
+    }
+    notesList.addEventListener("mouseover", displayNote);
 }
