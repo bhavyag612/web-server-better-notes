@@ -52,7 +52,7 @@ window.onload=function(){
         notesList.appendChild(listItem);
         listItem.textContent = noteTitle;
     }
-    function saveBTN () {
+    function getTitleInput () {
         let noteExists = false;
         do {
             noteExists = false;
@@ -64,6 +64,9 @@ window.onload=function(){
                 }
             }
         } while (noteTitle.length < 1||noteTitle.trim().length === 0||noteExists === true);
+    }
+    function saveBTN () {
+        getTitleInput();
         noteBody = textArea.value;
         let newNote = {title: noteTitle, body: noteBody};
         notesArray.push(newNote);
@@ -87,7 +90,7 @@ window.onload=function(){
             item.onclick = function() {
                 clickedLi = this.innerText;
                 for (let note of notesArray) {   
-                    if (note.title.includes(clickedLi)){
+                    if (note.title === clickedLi){
                     textArea.value = note.body;
                     }     
                 }
