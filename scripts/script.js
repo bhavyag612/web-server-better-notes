@@ -35,6 +35,10 @@ window.onload=function(){
             textArea.style.color = 'black';
         }
         textArea.focus();
+        newNote.classList.toggle('newNoteDark');
+        darkTheme.classList.toggle('themeDark');
+        save.classList.toggle('saveDark');
+        cancel.classList.toggle('cancelDark');
         document.querySelector('aside').classList.toggle('darkThemeBG1');
         document.querySelector('textarea').classList.toggle('darkThemeBG1');
         document.body.classList.toggle('textDarkTheme');
@@ -49,9 +53,17 @@ window.onload=function(){
         listItem.textContent = noteTitle;
     }
     function saveBTN () {
+        let noteExists = false;
         do {
+            noteExists = false;
             noteTitle = prompt("Please enter a title for this note: ");
-        } while (noteTitle.length < 1 || noteTitle.trim().length === 0);
+            for (let note of notesArray) {
+                if (note.title === noteTitle) {
+                    noteExists = true;
+                    alert("This note title already exists. Please enter a new title for this note.");
+                }
+            }
+        } while (noteTitle.length < 1||noteTitle.trim().length === 0||noteExists === true);
         noteBody = textArea.value;
         let newNote = {title: noteTitle, body: noteBody};
         notesArray.push(newNote);

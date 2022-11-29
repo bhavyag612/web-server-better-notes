@@ -63,15 +63,15 @@ button {
 }
 
 .newNote, .save {
-    background-color: #5394A0;
+    background-color: #375F68;
 }
 
 .darkTheme {
-    background-color: #6F6A87;
+    background-color: #56536A;
 }
 
 .cancel {
-    background-color: #D9827C;
+    background-color: #9B332C;
 }
 
 button:hover {
@@ -130,7 +130,7 @@ aside ul {
 }
 
 aside li:hover {
-    color: #373737;
+    color: #ff7700;
 }
 
 /* Utility */
