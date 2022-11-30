@@ -91,16 +91,16 @@ window.onload=function(){
 
     /* List Item Click Events */
     notesList.addEventListener("mouseover", displayNote);
-    function displayNote () {
+    function displayNote() {
         notesListItems.forEach(function(item) {
             item.onclick = function() {
                 clickedLi = this.innerText;
                 for (let note of notesArray) {   
                     if (note.title === clickedLi){
-                    textArea.value = note.body;
+                        textArea.value = note.body;
                     }     
                 };
-            };
+            }
         });
     }
 }

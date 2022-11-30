@@ -175,26 +175,27 @@ aside li:hover {
 
 /* Media Queries */
 @media screen and (min-width: 650px) {
+    body{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr 4fr;
+    }
     aside {
-        position: absolute;
-        left: 0px;
         width: 20%;
+        left: 0px;
         height: 100%;
+    }
+    header {
+        margin: 0px;
+        grid-row: 1;
+        grid-column: 2;
+    }
+    main,footer{
+        grid-column: 2;
+        grid-row: 2;
     }
     .center.left {
         text-align: left;
         margin-left: 10%;
-    }
-    section {
-        padding: 0px 20px 0px;
-    }
-    header {
-        margin: 0px;
-    }
-    footer,header, section {
-        margin-left: 20%;
-    }
-    footer {
-        width: 80%;
     }
 }
