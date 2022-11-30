@@ -1,12 +1,13 @@
 window.onload=function(){
 
     /* Variable Declarations */
-    const textArea = document.querySelector('textarea');
-    const newNote = document.querySelector('.newNote');
-    const darkTheme = document.querySelector('.darkTheme');
-    const cancel = document.querySelector('.cancel');
     const save = document.querySelector('.save');
+    const sidebar = document.querySelector('aside');
+    const cancel = document.querySelector('.cancel');
+    const newNote = document.querySelector('.newNote');
+    const textArea = document.querySelector('textarea');
     const notesList = document.querySelector('aside ul');
+    const darkTheme = document.querySelector('.darkTheme');
     const notesListItems = notesList.childNodes;
     const notesArray = [
         {title: "note one", body: "This is my first note."},
@@ -15,7 +16,7 @@ window.onload=function(){
 
     /* Cancel Button Click Events */
     cancel.addEventListener("click", cancelBTN);
-    function cancelBTN () {
+    function cancelBTN() {
         save.classList.add('hide');
         cancel.classList.add('hide');
         textArea.classList.add('hide');
@@ -23,7 +24,7 @@ window.onload=function(){
 
     /* New Note Button Click Events */
     newNote.addEventListener("click", newNoteBTN);
-    function newNoteBTN () {
+    function newNoteBTN() {
         save.classList.remove('hide');
         cancel.classList.remove('hide');
         textArea.classList.remove('hide');
@@ -32,7 +33,20 @@ window.onload=function(){
     }
     
     /* Dark Theme Button Click Events */
-    function darkThemeBTN () {
+    darkTheme.addEventListener("click", darkThemeBTN);
+    function darkThemeBTN() {
+        changeBTNtext();
+        save.classList.toggle('saveDark');
+        cancel.classList.toggle('cancelDark');
+        newNote.classList.toggle('newNoteDark');
+        darkTheme.classList.toggle('themeDark');
+        sidebar.classList.toggle('darkThemeBG1');
+        textArea.classList.toggle('darkThemeBG1');
+        document.body.classList.toggle('darkThemeBG2');
+        document.body.classList.toggle('textDarkTheme');
+        textArea.focus();
+    }
+    function changeBTNtext() {
         if (darkTheme.textContent === 'Dark Theme') {
             darkTheme.textContent = 'Light Theme';
             textArea.style.color = 'white';
@@ -40,49 +54,43 @@ window.onload=function(){
             darkTheme.textContent = 'Dark Theme';
             textArea.style.color = 'black';
         }
-        textArea.focus();
-        textArea.classList.toggle('darkThemeBG1');
-        newNote.classList.toggle('newNoteDark');
-        darkTheme.classList.toggle('themeDark');
-        save.classList.toggle('saveDark');
-        cancel.classList.toggle('cancelDark');
-        document.querySelector('aside').classList.toggle('darkThemeBG1');
-        document.body.classList.toggle('darkThemeBG2');
-        document.body.classList.toggle('textDarkTheme');
-    };
-    darkTheme.addEventListener("click", darkThemeBTN);
+    }
 
     /* Save Button Click Events */
     save.addEventListener("click", saveBTN);
-    function saveBTN () {
+    function saveBTN() {
         getTitleInput();
         noteBody = textArea.value;
-        let newNote = {title: noteTitle, body: noteBody};
-        notesArray.push(newNote);
+        noteExists = false;
+        for (let note of notesArray) {
+            if (note.title === noteTitle) {
+                    noteExists = true;
+                    alert(`Existing Note "${note.title}" Has Been Updated!`);
+                    note.body = noteBody;
+            }
+        }
+        if (noteExists === false) {
+            alert("New Note Successfully Added!");
+            let newNote = {title: noteTitle, body: noteBody};
+            notesArray.push(newNote);
+            appendListItem();
+        }
         textArea.value = '';
         textArea.focus();
-        appendListItem();
     }
-    function getTitleInput () {
-        let noteExists = false;
+    function getTitleInput() {
         do {
-            noteExists = false;
             noteTitle = prompt("Please enter a title for this note: ");
-            for (let note of notesArray) {
-                if (note.title === noteTitle) {
-                    noteExists = true;
-                    alert("This note title already exists. Please enter a new title for this note.");
-                }
-            }
-        } while (noteTitle.length < 1||noteTitle.trim().length === 0||noteExists === true);
+        } while (noteTitle.length < 1||noteTitle.trim().length === 0)
     }
-    function appendListItem () {
+    function appendListItem() {
         let listItem = document.createElement("li");
         notesList.appendChild(listItem);
         listItem.textContent = noteTitle;
     }
 
     /* List Item Click Events */
+    notesList.addEventListener("mouseover", displayNote);
     function displayNote () {
         notesListItems.forEach(function(item) {
             item.onclick = function() {
@@ -95,5 +103,4 @@ window.onload=function(){
             };
         });
     }
-    notesList.addEventListener("mouseover", displayNote);
 }
