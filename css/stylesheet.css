@@ -169,6 +169,10 @@ aside li:hover {
     background-color: #D9827C;
 }
 
+.hide {
+    display: none;
+}
+
 /* Media Queries */
 @media screen and (min-width: 650px) {
     aside {

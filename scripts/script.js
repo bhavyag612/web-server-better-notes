@@ -1,4 +1,5 @@
 window.onload=function(){
+
     /* Variable Declarations */
     const textArea = document.querySelector('textarea');
     const newNote = document.querySelector('.newNote');
@@ -8,22 +9,27 @@ window.onload=function(){
     const notesList = document.querySelector('aside ul');
     const notesListItems = notesList.childNodes;
     const notesArray = [
-        {title: "note one", body: "This is my first note"},
-        {title: "note two", body: "This is my second note"} 
+        {title: "note one", body: "This is my first note."},
+        {title: "note two", body: "This is my second note."} 
     ];
 
+    /* Cancel Button Click Events */
+    cancel.addEventListener("click", cancelBTN);
+    function cancelBTN () {
+        save.classList.add('hide');
+        cancel.classList.add('hide');
+        textArea.classList.add('hide');
+    }
+
     /* New Note Button Click Events */
+    newNote.addEventListener("click", newNoteBTN);
     function newNoteBTN () {
-        if (textArea.style.display === 'none') {
-            save.style.display = 'block';
-            cancel.style.display = 'block';
-            textArea.style.display = 'block';
-        } else {
-            textArea.value = '';
-        }
+        save.classList.remove('hide');
+        cancel.classList.remove('hide');
+        textArea.classList.remove('hide');
+        textArea.value = '';
         textArea.focus();
     }
-    newNote.addEventListener("click", newNoteBTN);
     
     /* Dark Theme Button Click Events */
     function darkThemeBTN () {
@@ -35,22 +41,27 @@ window.onload=function(){
             textArea.style.color = 'black';
         }
         textArea.focus();
+        textArea.classList.toggle('darkThemeBG1');
         newNote.classList.toggle('newNoteDark');
         darkTheme.classList.toggle('themeDark');
         save.classList.toggle('saveDark');
         cancel.classList.toggle('cancelDark');
         document.querySelector('aside').classList.toggle('darkThemeBG1');
-        document.querySelector('textarea').classList.toggle('darkThemeBG1');
-        document.body.classList.toggle('textDarkTheme');
         document.body.classList.toggle('darkThemeBG2');
+        document.body.classList.toggle('textDarkTheme');
     };
     darkTheme.addEventListener("click", darkThemeBTN);
 
     /* Save Button Click Events */
-    function appendListItem () {
-        let listItem = document.createElement("li");
-        notesList.appendChild(listItem);
-        listItem.textContent = noteTitle;
+    save.addEventListener("click", saveBTN);
+    function saveBTN () {
+        getTitleInput();
+        noteBody = textArea.value;
+        let newNote = {title: noteTitle, body: noteBody};
+        notesArray.push(newNote);
+        textArea.value = '';
+        textArea.focus();
+        appendListItem();
     }
     function getTitleInput () {
         let noteExists = false;
@@ -65,24 +76,11 @@ window.onload=function(){
             }
         } while (noteTitle.length < 1||noteTitle.trim().length === 0||noteExists === true);
     }
-    function saveBTN () {
-        getTitleInput();
-        noteBody = textArea.value;
-        let newNote = {title: noteTitle, body: noteBody};
-        notesArray.push(newNote);
-        textArea.value = '';
-        textArea.focus();
-        appendListItem();
+    function appendListItem () {
+        let listItem = document.createElement("li");
+        notesList.appendChild(listItem);
+        listItem.textContent = noteTitle;
     }
-    save.addEventListener("click", saveBTN);
-
-    /* Cancel Button Click Events */
-    function cancelBTN () {
-        save.style.display = 'none';
-        cancel.style.display = 'none';
-        textArea.style.display = 'none';
-    }
-    cancel.addEventListener("click", cancelBTN);
 
     /* List Item Click Events */
     function displayNote () {
@@ -93,9 +91,9 @@ window.onload=function(){
                     if (note.title === clickedLi){
                     textArea.value = note.body;
                     }     
-                }
-            }
-        })
+                };
+            };
+        });
     }
     notesList.addEventListener("mouseover", displayNote);
 }
