@@ -4,6 +4,6 @@ https://asad-mushtaq.github.io/Better-Notes/
 
 A simple note taking wesbite I created using: HTML5, CSS3, Javascript
 
-<img width="960" alt="Caqure" src="https://user-images.githubusercontent.com/114989022/221393300-425ead41-7ff5-4461-b8ec-5a1f09c16068.PNG">
+<img width="960" alt="light-theme" src="https://user-images.githubusercontent.com/114989022/221393391-32e975a9-87f9-49c9-b57c-5668b3db5b7a.PNG">
 
-<img width="960" alt="ture" src="https://user-images.githubusercontent.com/114989022/221393327-82c5f93b-4e79-45b2-94ab-129d039fc76f.PNG">
+<img width="960" alt="dark-theme" src="https://user-images.githubusercontent.com/114989022/221393394-9391c037-f217-4d26-8029-b7a67fc5f313.PNG">
