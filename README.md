@@ -1,10 +1,10 @@
 # Better Notes
 
+A simple note taking website developed using HTML5, CSS3 and JavaScript
+
 **View Project :** https://asad-mushtaq.github.io/Better-Notes/
 
 **Created By :** Asad Mushtaq
-
-A simple note taking website developed using: HTML5, CSS3, JavaScript
 
 <img width="960" alt="light-theme" src="https://user-images.githubusercontent.com/114989022/221393391-32e975a9-87f9-49c9-b57c-5668b3db5b7a.PNG">
 
