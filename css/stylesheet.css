@@ -73,6 +73,9 @@ button {
 .cancel {
     background-color: #9B332C;
 }
+.delete {
+    background-color: #9B332C;
+}
 
 button:hover {
     background-color: black;
@@ -131,6 +134,7 @@ aside ul {
 
 aside li:hover {
     color: #ff7700;
+    cursor: pointer;
 }
 
 /* Utility */
@@ -166,6 +170,9 @@ aside li:hover {
 }
 
 .cancelDark {
+    background-color: #D9827C;
+}
+.deleteDark {
     background-color: #D9827C;
 }
 
