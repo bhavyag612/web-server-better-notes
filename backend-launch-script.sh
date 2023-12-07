@@ -3,7 +3,8 @@
 # Update instance & install flask
 sudo apt update -y
 sudo apt install -y python3-flask python3-pip
-sudo apt install python3-flask-sqlalchemy
+sudo apt install -y python3-flask-sqlalchemy
+sudo apt install -y python3-flask-cors
 
 FLASK_APP=$(cat <<EOF
 from flask import Flask, jsonify, request
