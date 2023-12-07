@@ -15,7 +15,7 @@ window.onload=function(){
     
     fetchNotes();
     function fetchNotes() {
-        fetch('http://157.230.144.22:80/notes')
+        fetch('http://178.128.130.15:80/notes')
             .then(response => response.json())
             .then(data => {
                 notesArray.push(...data);
@@ -38,7 +38,7 @@ window.onload=function(){
     deleteBtn.addEventListener("click",deleteNote);
     function deleteNote(){
         const noteToDelete=current_note;
-        fetch(`http://157.230.144.22:80/notes/${noteToDelete}`, {
+        fetch(`http://178.128.130.15:80/notes/${noteToDelete}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ window.onload=function(){
         if (noteExists) {
             const noteToUpdate = notesArray.find(note => note.title === noteTitle);
 
-            fetch(`http://157.230.144.22:80/notes/${noteToUpdate.id}`, {
+            fetch(`http://178.128.130.15:80/notes/${noteToUpdate.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ window.onload=function(){
                 })
                 .catch(error => console.error('Error updating note:', error));
         }else {
-            fetch('http://157.230.144.22:80/notes', {
+            fetch('http://178.128.130.15:80/notes', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
